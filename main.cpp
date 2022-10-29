@@ -1833,13 +1833,13 @@ int main(int argc, char* argv[])
         arrRecordNum [ii] = getNameRecord(listOfNameRecords, cntNameRecord, 3, ii);     // microsoft.
     }
     const double emUnit = 1000.0 / static_cast<double>(headTable.unitsPerEm);   // The space required in termos of 1000 units for character 'M'.
-    const char* strCopyRight = arrRecordNum[0] == -1 ? "" : nameList[arrRecordNum[0]];                                     // code 0 represents copy right.
-    const char* strFontFamily = arrRecordNum[1] == -1 ? "" : nameList[arrRecordNum[1]];                                    // code 1 represents font family name.
-    const char* strFontStyle = arrRecordNum[2] == -1 ? "" : nameList[arrRecordNum[2]];                                     // code 2 represents font Style.
-    const char* strFontFullName = arrRecordNum[4] == -1 ? "" : nameList[arrRecordNum[4]];                                  // code 4 represents font full name.
-    const char *strPSFontName = arrRecordNum[6] == -1 ? "" : nameList[arrRecordNum[6]];                                    // code 6 represents name of Postscript font.
-    const char* strTradeMark = cntNameRecord < 8 ? "" : arrRecordNum[7] == -1 ? "" : nameList[arrRecordNum[7]];            // code 7 represents Trademark.
-    const char* strFontWeight = getWeight(os2Table.usWeightClass);                                                         // Font Weight Class.
+    const char* strCopyRight = arrRecordNum[0] == -1 ? "" : nameList[arrRecordNum[0]];      // code 0 represents copy right.
+    const char* strFontFamily = arrRecordNum[1] == -1 ? "" : nameList[arrRecordNum[1]];     // code 1 represents font family name.
+    const char* strFontStyle = arrRecordNum[2] == -1 ? "" : nameList[arrRecordNum[2]];      // code 2 represents font Style.
+    const char* strFontFullName = arrRecordNum[4] == -1 ? "" : nameList[arrRecordNum[4]];   // code 4 represents font full name.
+    const char *strPSFontName = arrRecordNum[6] == -1 ? "" : nameList[arrRecordNum[6]];     // code 6 represents name of Postscript font.
+    const char* strTradeMark = arrRecordNum[7] == -1 ? "" : nameList[arrRecordNum[7]];      // code 7 represents Trademark.
+    const char* strFontWeight = getWeight(os2Table.usWeightClass);                          // Font Weight Class.
 
     /**
     printf("panose familykind=%d weight=%d %d\n", os2Table.panose[0], os2Table.panose[2], os2Table.usWeightClass);
