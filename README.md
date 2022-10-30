@@ -32,7 +32,7 @@ This program has been developed based on the following documents.
 
 #### Usage
 Create a folder ~/cidfonts and store ttf file which will be convered. Now issue the following command:
-- `ttf2Postscriptcid -d ~/cidfonts/filename.ttf`
+- `./ttf2Postscriptcid -d ~/cidfonts/filename.ttf`
 
 If option **-d** is specified, then ttf table data will be displayed during execution.
 This utility generates the following two files as output:
