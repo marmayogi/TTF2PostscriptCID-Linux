@@ -155,7 +155,7 @@ void printAlphabet_T42(FILE* fps, const STTFCmapTable_SequentialMapGroup_Record*
             fprintf(fps, "50 750 moveto %d 0 rlineto stroke\n", 530);									// Horizontal line
             fprintf(fps, "35 735 moveto 0 -%d rlineto stroke\n", 660);									// Vertical line
             fprintf(fps, "13 %s\n", pTitleFontName);													// set font to print table title
-            fprintf(fps, "50 790 530 (Glyph) CTXT\n");													// Write title 'Glyph' by centering at LHS.
+            fprintf(fps, "50 790 530 (Glyph) CTXT\n");													// Write title 'Glyph' by centering at paper.
             for (short kk = 0; kk < 16; kk++) {
                 if (lcResidual && ii == lcLoop - 1 && cntGlyphPerPage == lcResidual) goto Label_Getout; // All glyphs are printed so getout.
                 uint16_t cid = ii * 128 + jj * 16 + kk;													// CID value corresponding to the Glyph. Range is between 0 and pTotalGlyphs-1.
@@ -295,7 +295,7 @@ void printAlphabet_T42(FILE* fttf, FILE* fps, const long pOffsetIdRangeOffset, c
             fprintf(fps, "50 750 moveto %d 0 rlineto stroke\n", 530);									// Horizontal line
             fprintf(fps, "35 735 moveto 0 -%d rlineto stroke\n", 660);									// Vertical line
             fprintf(fps, "13 %s\n", pTitleFontName);													// set font to print table title
-            fprintf(fps, "50 790 530 (Glyph) CTXT\n");													// Write title 'Glyph' by centering at LHS.
+            fprintf(fps, "50 790 530 (Glyph) CTXT\n");													// Write title 'Glyph' by centering at paper.
             for (short kk = 0; kk < 16; kk++) {
                 if (lcResidual && ii == lcLoop - 1 && cntGlyphPerPage == lcResidual) goto Label_Getout; // All glyphs are printed so getout.
                 uint16_t cid = ii * 128 + jj * 16 + kk;													// CID value corresponding to the Glyph. Range is between 0 and pTotalGlyphs-1.
@@ -1843,7 +1843,7 @@ int main(int argc, char* argv[])
     const double emUnit = 1000.0 / static_cast<double>(headTable.unitsPerEm);   // The space required in termos of 1000 units for character 'M'.
     const char* strCopyRight = arrRecordNum[0] == -1 ? "" : nameList[arrRecordNum[0]];      // code 0 represents copy right.
     const char* strFontFamily = arrRecordNum[1] == -1 ? "" : nameList[arrRecordNum[1]];     // code 1 represents font family name.
-    const char* strFontStyle = arrRecordNum[2] == -1 ? "" : nameList[arrRecordNum[2]];      // code 2 represents font Style.
+    const char* strFontStyle = arrRecordNum[2] == -1 ? "" : nameList[arrRecordNum[2]];      // code 2 represents font Style.    
     const char* strFontFullName = arrRecordNum[4] == -1 ? "" : nameList[arrRecordNum[4]];   // code 4 represents font full name.
     const char *strPSFontName = arrRecordNum[6] == -1 ? "" : nameList[arrRecordNum[6]];     // code 6 represents name of Postscript font.
     const char* strTradeMark = arrRecordNum[7] == -1 ? "" : nameList[arrRecordNum[7]];      // code 7 represents Trademark.
