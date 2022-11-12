@@ -1,0 +1,8 @@
+# .gitignore
+ 
+main.o
+ttf2postscriptcid.exe
+ttf2postscriptcid
+*~
+*.swp
+README.md-*.*
