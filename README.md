@@ -34,10 +34,10 @@ This program has been developed based on the following documents.
 5. [Adobe CMap and CID Font Files Specification #5014 (102 pages PDF, 541k) 11/Jun/1996 Version 1.0](https://adobe-type-tools.github.io/font-tech-notes/pdfs/5014.CIDFont_Spec.pdf)
 
 #### Usage
-Create a folder ~/cidfonts and store ttf file which will be convered. Now issue the following command:
+Create a folder ~/cidfonts and store `ttf` file which will be convered. Now issue the following command:
 - `./ttf2Postscriptcid -d ~/cidfonts/filename.ttf`
 
-If option **-d** is specified, then ttf table data will be displayed during execution.
+If option **-d** is specified, then `ttf` table data will be displayed during execution.
 This utility generates the following two files as output:
 1. **filename.t42** is the required converted file with extension Type 42.
 2. **filename.ps** is a postscript program file whose execution displays the glyphs present in the character set along with CIDs and Unicode Points. If a Glyph does not associate with an Unicode Point, then `none` will be printed.
@@ -57,7 +57,7 @@ There are 534 `Tamil` and `Latin` Glyphs in the character set which will be disp
 
 #### Testing t42 Font.
 
-In order to test **NotoSansTamil-Regular.t42** CIDfont file, edit a file **tamil.ps** using nodepad in the folder "~/cidfonts" with the following postscript code:
+In order to test **NotoSansTamil-Regular.t42** CID-Keyed font file, edit a file **tamil.ps** using nodepad in the folder `~/cidfonts` with the following postscript code:
 ```
 %!PS-Adobe-3.0
 /myNoTo {/NotoSansTamil-Regular findfont exch scalefont setfont} bind def
