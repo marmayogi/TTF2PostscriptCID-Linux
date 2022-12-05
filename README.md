@@ -86,7 +86,7 @@ This utility has been tested for the following languages successfully.
 4. [Gujarati](https://fonts.google.com/noto/specimen/Noto+Sans+Gujarati)
 5. [Gurmukhi](https://fonts.google.com/noto/specimen/Noto+Sans+Gurmukhi) (Punjabi)
 6. [Oriya](https://fonts.google.com/noto/specimen/Noto+Sans+Oriya)
-7. [Bengali](https://fonts.google.com/noto/specimen/Noto+Sans+Bengali) (assamese)
+7. [Bengali](https://fonts.google.com/noto/specimen/Noto+Sans+Bengali) (Assamese)
 8. [Devanagari](https://fonts.google.com/noto/specimen/Noto+Sans+Devanagari) (Sanskrit, Hindi and Marathi)
 
 ##### Apple's Truetype fonts vs Adobe's fonts.
