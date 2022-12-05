@@ -73,7 +73,7 @@ showpage
 Issue the following Ghostscript command  to execute the `tamil.ps` postscript program. 
 - `gs ~/cidfonts/NotoSansTamil-Regular.t42 ~/cidfonts/tamil.ps`
 
-This will display strings `தமிழ் தங்களை வரவேற்கிறது!` and `Tamil Welcomes You!`.
+This will display two strings `தமிழ் தங்களை வரவேற்கிறது!` and `Tamil Welcomes You!` respectively in subsequent rows.
 
 Note that the strings for `show` operator are in Hexadecimal format embeded within angular brackets. Operator `show` extracts 2 bytes at a time and maps this CID (16 bit value) to a Glyph.
 For example, the first 4 Hex digits in the 1st string is `0019` whose decimal equivalent is `25`. This maps to glyph `த`.
