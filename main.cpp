@@ -162,12 +162,12 @@ void printAlphabet_T42(FILE* fps, const STTFCmapTable_SequentialMapGroup_Record*
     for (short ii = 0; ii < lcLoop; ii++) {// Total Pages
         for (short jj = 0, cntGlyphPerPage = 0; jj < 8; jj++) {
             unsigned int titlecode = ii * 128 + (jj << 4);
+            fprintf(fps, "13 %s\n", pTitleFontName);													// set font to print table title
+            fprintf(fps, "50 775 530 (Glyph) CTXT\n");													// Write title 'Glyph' by centering at paper.
             fprintf(fps, "10 %s\n", pTitleFontName);													// set font to print table title
             fprintf(fps, "50 %d add 760 moveto (%d) show\n", 68 * jj, titlecode);						// print column title
             fprintf(fps, "50 750 moveto %d 0 rlineto stroke\n", 530);									// Horizontal line
             fprintf(fps, "35 735 moveto 0 -%d rlineto stroke\n", 660);									// Vertical line
-            fprintf(fps, "13 %s\n", pTitleFontName);													// set font to print table title
-            fprintf(fps, "50 790 530 (Glyph) CTXT\n");													// Write title 'Glyph' by centering at paper.
             for (short kk = 0; kk < 16; kk++) {
                 if (lcResidual && ii == lcLoop - 1 && cntGlyphPerPage == lcResidual) goto Label_Getout; // All glyphs are printed so getout.
                 uint16_t cid = ii * 128 + jj * 16 + kk;													// CID value corresponding to the Glyph. Range is between 0 and pTotalGlyphs-1.
@@ -2011,13 +2011,14 @@ int main(int argc, char* argv[])
 
     // completed successfully
     fprintf(stdout, "\nConversion has been successfully completed and the following two files have been generated.\n");
-    fprintf(stdout, "  1. %s is the converted file corresponding to the TrueType font %s.\n", t42Filenamet, strTrueTypeFontFile);
+    fprintf(stdout, "  1. '%s' is the converted file corresponding to the TrueType font file '%s'.\n", t42Filenamet, strTrueTypeFontFile);
 #if _MSC_VER			// Visual Studio
-    fprintf(stdout, "  2. %s is a postscript program file executable either through Ghostscript (gswin64c.exe) or through GSView (gsview64.exe).\n", psFilename);
+    fprintf(stdout, "  2. '%s' is a postscript program file executable either through Ghostscript (gswin64c.exe) or through GSView (gsview64.exe).\n", psFilename);
 #elif __GNUC__	|| __CYGWIN__		// gcc
-    fprintf(stdout, "  2. %s is a postscript program file executable either through Ghostscript (gs) or through GSView (gv).\n", psFilename);
+    fprintf(stdout, "  2. '%s' is a postscript program file executable either through Ghostscript (gs) or through GSView (gv).\n", psFilename);
 #endif
     fprintf(stdout, "     This postscript program displays %u Glyphs present in the character set along with the corresponding CIDs and Unicode Points in %d pages.\n", numOfGlyphs, numOfGlyphs/128 + ((numOfGlyphs % 128) > 0));
-    fprintf(stdout, "     Note: Before executing postscript program, make sure that CIDfont file %s is accessible to Ghostscript.\n\n", t42Filenamet);
+    fprintf(stdout, "     Since only around 12%% Glyphs of Indian Languages are alloted 'Code Space' (Unicode Points), the Glyphs with no unicode point will have 'none' printed in the page.\n");
+    fprintf(stdout, "     Note: Before executing postscript program, make sure that CID-Keyed font file '%s' is accessible to Ghostscript.\n\n", t42Filenamet);
     exit(0);
 }
